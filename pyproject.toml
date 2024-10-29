@@ -1,0 +1,50 @@
+[project]
+name = "tash"
+version = "0.0.1"
+description = "Educational Platform that runs on the terminal."
+authors = [
+    { name = "Ramon Perez", email = "ramonpzg@protonmail.com" }
+]
+dependencies = [
+    "textual>=0.76.0",
+    "textual-dev>=1.5.1",
+    "sqlmodel>=0.0.22",
+    "libsql-client>=0.3.1",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+keywords = [
+  "tash", "tui", "education", "terminal", "cli"
+]
+
+[project.urls]
+Repository = "https://github.com/ramonpzg/tash"
+Documentation = "https://github.com/ramonpzg/tash"
+Changelog = "https://github.com/ramonpzg/tash/blob/main/CHANGELOG.md"
+Releases = "https://github.com/ramonpzg/tash/releases"
+
+[project.scripts]
+tash = "tash:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+managed = true
+dev-dependencies = [
+    "pytest>=8.2.2",
+    "ipython>=8.26.0",
+    "ruff>=0.6.4",
+    "ipykernel>=6.29.5",
+    "textual-dev>=1.6.1",
+]
+
+# [tool.hatch.metadata]
+# allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tash"]
+
+[tool.uv.workspace]
+members = ["tash-app"]
